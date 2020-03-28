@@ -1,4 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
 .App {
+  font-family: "Lato", sans-serif;
+  padding: 50px;
   text-align: center; }
+
+:root {
+  font-weight: 300;
+  font-size: 24px; }
+
+.flashcard {
+  border: 1px solid #747a7e !important; }
+  .flashcard__content {
+    margin: 20px 0px;
+    padding: 0px 40px; }
 
 /*# sourceMappingURL=index.css.map */

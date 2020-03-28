@@ -1,3 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
+
+$border-color: #747a7e;
+$font-base-size: 24px;
+$default-text-color: #313537;
+$font-weight: 300;
+
 .App {
+  font-family: "Lato", sans-serif;
+  padding: 50px;
   text-align: center;
+}
+
+:root {
+  font-weight: $font-weight;
+  font-size: $font-base-size;
+}
+
+.flashcard {
+  border: 1px solid $border-color !important;
+
+  &__content {
+    margin: 20px 0px;
+    padding: 0px 40px;
+  }
 }
