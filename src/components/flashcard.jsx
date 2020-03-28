@@ -1,18 +1,26 @@
 import React from 'react';
-import FlipIcon from '../assets/flipIcon.jsx';
+import { CONTENT_TYPE } from '../constants/constants';
+import FlashcardContent from './FlashcardContent';
+import FlipIcon from '../assets/FlipIcon.jsx';
 import '../stylesheets/index.css';
 
-const flashcard = ({
-  text,
+const Flashcard = ({
+  content,
+  contentType,
+  isFullCard,
 }) => {
   return (
-    <div class="flashcard">
-      <p className="flashcard__content">
-        {text}
-      </p>
-      <FlipIcon color="red" />
-    </div>
+    <section className="flashcard">
+      <FlashcardContent
+        content={content}
+        contentType={contentType}
+        isFullCard={isFullCard}
+      />
+      <button className="flashcard__flip">
+        <FlipIcon color="red" />
+      </button>
+    </section>
   );
 }
 
-export default flashcard;
+export default Flashcard;

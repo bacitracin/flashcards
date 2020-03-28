@@ -1,12 +1,13 @@
 import React from 'react';
+import { MOCK_DATA } from './data/index';
 import './stylesheets/index.css';
-import Flashcard from './components/flashcard.jsx';
+import FlashcardWrapper from './components/FlashcardWrapper.jsx';
 
 function App() {
   return (
     <div className="App">
-      <Flashcard
-        text={"Front of card 1"}
+      <FlashcardWrapper
+        flashcards={MOCK_DATA}
       />
     </div>
   );

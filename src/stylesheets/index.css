@@ -13,5 +13,8 @@
   .flashcard__content {
     margin: 20px 0px;
     padding: 0px 40px; }
+  .flashcard__flip {
+    background-color: transparent;
+    border: none; }
 
 /*# sourceMappingURL=index.css.map */
