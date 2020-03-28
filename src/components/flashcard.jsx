@@ -1,6 +1,5 @@
 import React from 'react';
-import { CONTENT_TYPE } from '../constants/constants';
-import FlashcardContent from './FlashcardContent';
+import FlashcardContent from './FlashcardContent.jsx';
 import FlipIcon from '../assets/FlipIcon.jsx';
 import '../stylesheets/index.css';
 
