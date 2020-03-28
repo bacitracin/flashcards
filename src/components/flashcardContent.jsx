@@ -5,13 +5,10 @@ import '../stylesheets/index.css';
 const FlashcardContent = ({
   content,
   contentType,
-  isFullCard,
 }) => {
   return (
-    <div
-      className={isFullCard ? "flashcard__content--full" : "flashcard__content--centered"}
-    >
-      {contentType === CONTENT_TYPE.TEXT && content}
+    <div className="flashcard__content">
+      {contentType === CONTENT_TYPE.TEXT && <p>{content}</p>}
     </div >
   );
 }

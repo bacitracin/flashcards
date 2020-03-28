@@ -9,12 +9,38 @@
   font-size: 24px; }
 
 .flashcard {
-  border: 1px solid #747a7e !important; }
+  border-color: #dddddd;
+  border-style: solid;
+  border-width: 0px 1px 1px 1px;
+  height: 280px;
+  width: 280px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; }
+  .flashcard__accent-border {
+    border-top: 3px solid #23b4a1;
+    height: 100%;
+    width: 100%; }
   .flashcard__content {
-    margin: 20px 0px;
-    padding: 0px 40px; }
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    opacity: 1; }
+    .flashcard__content:hover {
+      opacity: 0.5; }
   .flashcard__flip {
     background-color: transparent;
-    border: none; }
+    border: none;
+    padding: 12.5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    outline: none; }
+    .flashcard__flip:hover {
+      opacity: 1; }
 
 /*# sourceMappingURL=index.css.map */

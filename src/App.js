@@ -6,9 +6,8 @@ function App() {
   return (
     <div className="App">
       <Flashcard
-        content={'hello'}
+        content={'Front of card 1. Back is centered image.'}
         contentType={'text'}
-        isFullCard={false}
       />
     </div>
   );
