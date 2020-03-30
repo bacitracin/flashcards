@@ -7,7 +7,7 @@ const FlashcardContent = ({
   contentType,
 }) => {
   return (
-    <div className="card__content">
+    <div className="card__content text-padding">
       {contentType === CONTENT_TYPE.TEXT && <p>{content}</p>}
     </div >
   );

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/index.css';
 import FlashcardContent from './FlashcardContent';
 import { CONTENT_TYPE } from '../constants/constants'
-import Flipcard from '../assets/FlipIcon';
+import FlipIcon from '../assets/FlipIcon';
 
 export default class Flashcard extends Component {
   constructor(props) {
@@ -22,19 +22,22 @@ export default class Flashcard extends Component {
 
     return (
       <section className="container">
-        <div className={`${flipped ? 'card flipped' : 'card'}`} onClick={this.flipCard}>
+        <div
+          className={`${flipped ? 'card flipped' : 'card'}`}
+          onClick={this.flipCard}
+        >
           <div className="card__face card__face--front">
             <div>
               <div className="accent-border" />
-              <Flipcard color="rgb(35, 180, 161)" />
+              <FlipIcon color="rgb(35, 180, 161)" />
             </div>
             <FlashcardContent
-              content="Hello there"
+              content="Front of card 2. Back is Full Card Image"
               contentType={CONTENT_TYPE.TEXT}
             />
           </div>
           <div className="card__face card__face--back">
-            <Flipcard color="rgb(35, 180, 161)" />
+            <FlipIcon color="rgb(35, 180, 161)" />
             <FlashcardContent
               content="Goodbye"
               contentType={CONTENT_TYPE.TEXT}

@@ -8,73 +8,70 @@
   font-weight: 300;
   font-size: 24px; }
 
-.container {
-  width: 280px;
-  height: 280px;
-  perspective: 800px;
-  cursor: pointer; }
-
-.container:hover .accent-border {
-  opacity: 0.5; }
-
-.container:hover .card__content {
-  opacity: 0.5; }
-
-.container:hover .flip-icon {
-  opacity: 1; }
-
-.card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 1s;
-  transform-style: preserve-3d; }
-
-.card__face {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  backface-visibility: hidden;
-  overflow: hidden;
-  opacity: 1; }
-
-.card__face--front {
-  background: #fff;
-  border-width: 0px 1px 1px 1px;
-  border-style: solid;
-  border-color: #dddddd; }
-
-.card__face--back {
-  background: #fff;
-  transform: rotateY(180deg);
-  border: 1px solid #dddddd; }
-
-.card.flipped {
-  transform: rotateY(180deg); }
-
-.card__content {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  opacity: 1;
-  backface-visibility: hidden; }
-
-.flip-icon {
-  background-color: transparent;
-  border: none;
-  padding: 12.5px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
-  outline: none; }
-
 .accent-border {
   border-top: 3px solid #23b4a1;
   height: 100%;
   width: 100%; }
+
+.container {
+  cursor: pointer;
+  perspective: 800px;
+  height: 280px;
+  width: 280px; }
+  .container:hover .accent-border {
+    opacity: 0.5; }
+  .container:hover .card__content {
+    opacity: 0.5; }
+  .container:hover .flip-icon {
+    opacity: 1; }
+
+.card {
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  width: 100%; }
+  .card__content {
+    align-items: center;
+    backface-visibility: hidden;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    opacity: 1;
+    position: relative;
+    width: auto; }
+
+.card__face {
+  backface-visibility: hidden;
+  height: 100%;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  width: 100%; }
+  .card__face--back {
+    background: #fff;
+    border: 1px solid #dddddd;
+    transform: rotateY(-180deg); }
+  .card__face--front {
+    background: #fff;
+    border-color: #dddddd;
+    border-style: solid;
+    border-width: 0px 1px 1px 1px; }
+
+.card.flipped {
+  transform: rotateY(-180deg); }
+
+.flip-icon {
+  background-color: transparent;
+  border: none;
+  bottom: 0;
+  opacity: 0.5;
+  outline: none;
+  padding: 12.5px;
+  position: absolute;
+  right: 0; }
+
+.text-padding {
+  padding: 0px 20px; }
 
 /*# sourceMappingURL=index.css.map */
