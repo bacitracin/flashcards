@@ -20,17 +20,29 @@ $card-size--small: 250px;
 }
 
 .container {
-    width: $card-size;
-    height: $card-size;
-    perspective: 800px;
-    cursor: pointer;
+  width: $card-size;
+  height: $card-size;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.container:hover .accent-border {
+  opacity: 0.5
+}
+
+.container:hover .card__content {
+  opacity: 0.5
+}
+
+.container:hover .flip-icon {
+  opacity: 1
 }
 .card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 1s;
-    transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
 
 .card__face {
@@ -39,19 +51,20 @@ $card-size--small: 250px;
   width: 100%;
   backface-visibility: hidden;
   overflow: hidden;
+  opacity: 1;
 }
 
 .card__face--front {
   background:#fff;
-  border-width: 0 1px 1px 1px;
+  border-width: 0px 1px 1px 1px;
   border-style: solid;
   border-color: $border-color;
 }
 
 .card__face--back {
   background: #fff;
-  border: 1px solid $border-color;
   transform: rotateY( 180deg );
+  border: 1px solid $border-color;
 }
 
 .card.flipped {

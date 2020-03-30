@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/index.css';
 import FlashcardContent from './FlashcardContent';
 import { CONTENT_TYPE } from '../constants/constants'
+import Flipcard from '../assets/FlipIcon';
 
 export default class Flashcard extends Component {
   constructor(props) {
@@ -23,14 +24,17 @@ export default class Flashcard extends Component {
       <section className="container">
         <div className={`${flipped ? 'card flipped' : 'card'}`} onClick={this.flipCard}>
           <div className="card__face card__face--front">
-            <div className="accent-border">
-              <FlashcardContent
-                content="Hello there"
-                contentType={CONTENT_TYPE.TEXT}
-              />
+            <div>
+              <div className="accent-border" />
+              <Flipcard color="rgb(35, 180, 161)" />
             </div>
+            <FlashcardContent
+              content="Hello there"
+              contentType={CONTENT_TYPE.TEXT}
+            />
           </div>
           <div className="card__face card__face--back">
+            <Flipcard color="rgb(35, 180, 161)" />
             <FlashcardContent
               content="Goodbye"
               contentType={CONTENT_TYPE.TEXT}
