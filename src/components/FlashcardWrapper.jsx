@@ -1,11 +1,22 @@
 // import React from 'react';
-// import '../stylesheets/index.css';
 // import Flashcard from './Flashcard';
+// import '../stylesheets/index.css';
 
-// const FlashcardWrapper = ((flashcards) => {
-//   flashcards.map(() => {
-//     return <Flashcard content="why" contentType="text" />
-//   })
-// });
+// const FlashcardWrapper = (flashcards) => {
+//   return flashcards.length ?
+//     flashcards.map(({
+//       contentBack,
+//       contentBackType,
+//       contentFront,
+//       contentFrontType,
+//     }) =>
+//       <Flashcard
+//         contentFront={contentFront}
+//         contentFrontType={contentFrontType}
+//         contentBack={contentBack}
+//         contentBackType={contentBackType}
+//       />
+//     ) : null
+// }
 
 // export default FlashcardWrapper;

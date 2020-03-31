@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../stylesheets/index.css';
 import FlashcardContent from './FlashcardContent';
-import { CONTENT_TYPE } from '../constants/constants'
+import FlipButton from './FlipButton';
 import FlipIcon from '../assets/FlipIcon';
+import '../stylesheets/index.css';
 
 export default class Flashcard extends Component {
   constructor(props) {
@@ -18,29 +18,27 @@ export default class Flashcard extends Component {
   }
 
   render() {
+    const { contentFront, contentFrontType, contentBack, contentBackType, isFirst } = this.props;
     const { flipped } = this.state;
 
     return (
-      <section className="container">
+      <section className="card__container">
         <div
           className={`${flipped ? 'card flipped' : 'card'}`}
           onClick={this.flipCard}
         >
-          <div className="card__face card__face--front">
-            <div>
-              <div className="accent-border" />
-              <FlipIcon color="rgb(35, 180, 161)" />
-            </div>
+          <div className={`card__face card__face__front--${contentFrontType}`}>
+            <FlipButton cardSide="front" isFirst={true} contentType={contentFrontType} />
             <FlashcardContent
-              content="Front of card 2. Back is Full Card Image"
-              contentType={CONTENT_TYPE.TEXT}
+              content={contentFront}
+              contentType={contentFrontType}
             />
           </div>
-          <div className="card__face card__face--back">
-            <FlipIcon color="rgb(35, 180, 161)" />
+          <div className="card__face card__face__back">
+            <FlipButton cardSide="back" isFirst={true} contentType={contentBackType} />
             <FlashcardContent
-              content="Goodbye"
-              contentType={CONTENT_TYPE.TEXT}
+              content={contentBack}
+              contentType={contentBackType}
             />
           </div>
         </div>

@@ -8,70 +8,107 @@
   font-weight: 300;
   font-size: 24px; }
 
-.accent-border {
-  border-top: 3px solid #23b4a1;
-  height: 100%;
-  width: 100%; }
-
-.container {
-  cursor: pointer;
-  perspective: 800px;
-  height: 280px;
-  width: 280px; }
-  .container:hover .accent-border {
-    opacity: 0.5; }
-  .container:hover .card__content {
-    opacity: 0.5; }
-  .container:hover .flip-icon {
-    opacity: 1; }
-
 .card {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
   width: 100%; }
-  .card__content {
-    align-items: center;
-    backface-visibility: hidden;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    opacity: 1;
-    position: relative;
-    width: auto; }
-
-.card__face {
-  backface-visibility: hidden;
-  height: 100%;
-  opacity: 1;
-  overflow: hidden;
-  position: absolute;
-  width: 100%; }
-  .card__face--back {
-    background: #fff;
-    border: 1px solid #dddddd;
-    transform: rotateY(-180deg); }
-  .card__face--front {
-    background: #fff;
-    border-color: #dddddd;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px; }
 
 .card.flipped {
   transform: rotateY(-180deg); }
 
-.flip-icon {
-  background-color: transparent;
+.card__container {
+  cursor: pointer;
+  height: 280px;
+  margin: 20px;
+  perspective: 800px;
+  width: 280px; }
+
+.card__container:hover .card__content {
+  opacity: 0.5; }
+
+.card__container:hover .flip-icon,
+.card__container:hover .flip-text--show-text {
+  opacity: 1; }
+
+.card__content {
+  align-items: center;
+  backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  justify-content: flex-start;
+  position: relative;
+  width: auto; }
+
+.card__content--text {
+  align-items: flex-start;
+  font-size: 20px;
+  text-align: left;
+  mask-border: linear-gradient(to bottom, black 60%, transparent);
+  line-height: 32px;
+  overflow-y: auto; }
+
+.card__face {
+  backface-visibility: hidden;
+  border: 1px solid #dddddd;
+  box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0, 0, 0, 0.05);
+  height: 100%;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 5; }
+
+.card__face__back {
+  background: #fff;
+  transform: rotateY(-180deg); }
+
+.card__face__front--text {
+  background: white;
+  border-top: 3px solid #23b4a1; }
+
+.card__text {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+  padding: 0px 20px; }
+
+.flip-button {
   border: none;
   bottom: 0;
-  opacity: 0.5;
   outline: none;
   padding: 12.5px;
+  display: flex;
   position: absolute;
-  right: 0; }
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  z-index: 50; }
 
-.text-padding {
-  padding: 0px 20px; }
+.flip-button--hide-text {
+  background: transparent; }
+
+.flip-button--show-text {
+  background: white; }
+
+.flip-icon {
+  opacity: 0.5; }
+
+.flip-icon--shadow {
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7)); }
+
+.flip-text--hide-text {
+  display: none; }
+
+.flip-text--show-text {
+  font-size: 10px;
+  opacity: 0.5;
+  margin-right: 6px;
+  font-style: italic;
+  line-height: 17px;
+  font-size: 12px; }
 
 /*# sourceMappingURL=index.css.map */

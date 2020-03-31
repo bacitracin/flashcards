@@ -6,9 +6,20 @@ const FlashcardContent = ({
   content,
   contentType,
 }) => {
+  const contentStyle = contentType === CONTENT_TYPE.IMAGE ? {
+    backgroundImage: `url(${content})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  } : {};
+
   return (
-    <div className="card__content text-padding">
-      {contentType === CONTENT_TYPE.TEXT && <p>{content}</p>}
+    <div className={`card__content card__content--${contentType}`} style={contentStyle}>
+      {contentType === CONTENT_TYPE.TEXT &&
+        <div className="card__text">
+          <p>{content}</p>
+        </div>
+      }
     </div >
   );
 }

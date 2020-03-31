@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
 
 $accent-color: rgb(35, 180, 161);
-$border-color: rgb(221, 221, 221);
-$default-text-color: #313537;
-
+$border-color:rgb(221, 221, 221);
+$bright-background-color: rgb(255, 255, 255);
+$default-background-color: #fff;
+$default-text-color: rgb(49,53, 55);
+// Need to figure out when to use large/small sizes
 $card-size: 280px;
+$card-size--large: 300px;
 $card-size--small: 250px;
 
 $font-base-size: 24px;
@@ -21,87 +24,123 @@ $font-weight: 300;
   font-size: $font-base-size;
 }
 
-.accent-border {
-  border-top: 3px solid $accent-color;
-  height: 100%;
-  width: 100%;
-}
-
-.container {
-  cursor: pointer;
-  perspective: 800px;
-  height: $card-size;
-  width: $card-size;
-
-  &:hover .accent-border {
-    opacity: 0.5
-  }
-
-  &:hover .card__content {
-    opacity: 0.5
-  }
-
-  &:hover .flip-icon {
-    opacity: 1
-  }
-}
-
 .card {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
   width: 100%;
-
-  &__content {
-    align-items: center;
-    backface-visibility: hidden;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    opacity: 1;
-    position: relative;
-    width: auto;
-  }
-}
-
-.card__face {
-  backface-visibility: hidden;
-  height: 100%;
-  opacity: 1;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-
-  &--back {
-    background: #fff;
-    border: 1px solid $border-color;
-    transform: rotateY( -180deg );
-  }
-
-  &--front {
-    background:#fff;
-    border-color: $border-color;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px;
-  }
 }
 
 .card.flipped {
   transform: rotateY( -180deg );
 }
 
-.flip-icon {
-  background-color: transparent;
-  border: none;
-  bottom: 0;
-  opacity: 0.5;
-  outline: none;
-  padding: 12.5px;
-  position: absolute;
-  right: 0;
+.card__container {
+  cursor: pointer;
+  height: $card-size;
+  margin: 20px;
+  perspective: 800px;
+  width: $card-size;
 }
 
-.text-padding {
+.card__container:hover .card__content {
+  opacity: 0.5;
+}
+
+.card__container:hover .flip-icon,
+.card__container:hover .flip-text--show-text {
+  opacity: 1;
+}
+
+.card__content {
+  align-items: center;
+  backface-visibility: hidden;
+  display: flex;
+  height: 100%;
+  justify-content: flex-start;
+  position: relative;
+  width: auto;
+}
+
+.card__content--text {
+  align-items: flex-start;
+  font-size: 20px;
+  text-align: left;
+  mask-border: linear-gradient(to bottom, black 60%, transparent);
+  line-height: 32px;
+  overflow-y: auto;
+}
+
+.card__face {
+  backface-visibility: hidden;
+  border: 1px solid $border-color;
+  box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
+  height: 100%;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+
+.card__face__back {
+  background: $default-background-color;
+  transform: rotateY( -180deg );
+}
+
+.card__face__front--text {
+  background: $bright-background-color;
+  border-top: 3px solid $accent-color;
+}
+
+.card__text {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
   padding: 0px 20px;
+}
+
+.flip-button {
+  border: none;
+  bottom: 0;
+  outline: none;
+  padding: 12.5px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  z-index: 50;
+}
+
+.flip-button--hide-text {
+  background: transparent;
+}
+
+.flip-button--show-text {
+  background: $bright-background-color;
+}
+
+.flip-icon {
+  opacity: 0.5;
+}
+
+.flip-icon--shadow {
+  filter: drop-shadow(0 0 2px rgba(0,0,0,.7));
+}
+
+.flip-text--hide-text {
+  display: none;
+}
+
+.flip-text--show-text {
+  font-size: 10px;
+  opacity: 0.5;
+  margin-right: 6px;
+  font-style: italic;
+  line-height: 17px;
+  font-size: 12px;
 }
