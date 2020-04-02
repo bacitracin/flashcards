@@ -13,13 +13,18 @@ const FlashcardContent = ({
     backgroundPosition: 'center',
   } : {};
 
+  const isText = contentType === CONTENT_TYPE.TEXT;
+  const textStyle = isText && content && content.length > 50 ? 'long-text' : 'short-text';
+
   return (
     <div className={`card__content card__content--${contentType}`} style={contentStyle}>
-      {contentType === CONTENT_TYPE.TEXT &&
-        <div className="card__text">
-          <p>{content}</p>
-        </div>
-      }
+      <div className="card__border">
+        {isText &&
+          <div className={`card__text card__text--${textStyle}`}>
+            <p>{content}</p>
+          </div>
+        }
+      </div>
     </div >
   );
 }

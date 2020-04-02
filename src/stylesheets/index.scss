@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
 
 $accent-color: rgb(35, 180, 161);
-$border-color:rgb(221, 221, 221);
-$bright-background-color: rgb(255, 255, 255);
-$default-background-color: #fff;
-$default-text-color: rgb(49,53, 55);
-// Need to figure out when to use large/small sizes
-$card-size: 280px;
-$card-size--large: 300px;
-$card-size--small: 250px;
+$border-color:#ddd;
+$bright-background-color: #fff;
+$default-background-color: #fafafa;
+$default-text-color: #313537;
+
+$card-size: 250px;
 
 $font-base-size: 24px;
 $font-weight: 300;
@@ -20,8 +18,8 @@ $font-weight: 300;
 }
 
 :root {
-  font-weight: $font-weight;
   font-size: $font-base-size;
+  font-weight: $font-weight;
 }
 
 .card {
@@ -33,42 +31,53 @@ $font-weight: 300;
 }
 
 .card.flipped {
-  transform: rotateY( -180deg );
+  transform: rotateY( -180deg ) scale(1.12);
+}
+
+.card__border {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+  padding: 0px 40px;
+  overflow: hidden;
+  overflow-y: auto;
+  width: 100%;
 }
 
 .card__container {
   cursor: pointer;
   height: $card-size;
-  margin: 20px;
+  margin: 50px;
   perspective: 800px;
   width: $card-size;
 }
 
-.card__container:hover .card__content {
+.card__container:hover .card__content,
+.card__container:hover .card__content--text {
   opacity: 0.5;
 }
 
-.card__container:hover .flip-icon,
-.card__container:hover .flip-text--show-text {
+.card__container:hover .flip__icon,
+.card__container:hover .flip__text--show-text {
   opacity: 1;
 }
 
 .card__content {
-  align-items: center;
-  backface-visibility: hidden;
   display: flex;
   height: 100%;
-  justify-content: flex-start;
+  overflow: hidden;
   position: relative;
-  width: auto;
+  width: 100%;
+}
+
+.card__face__front--text .card__content--text {
+  border-top: 3px solid $accent-color;
 }
 
 .card__content--text {
-  align-items: flex-start;
-  font-size: 20px;
-  text-align: left;
+  font-size: 24px;
   mask-border: linear-gradient(to bottom, black 60%, transparent);
-  line-height: 32px;
   overflow-y: auto;
 }
 
@@ -77,9 +86,11 @@ $font-weight: 300;
   border: 1px solid $border-color;
   box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
   height: 100%;
+  left: 0;
   opacity: 1;
   overflow: hidden;
   position: absolute;
+  top: 0;
   width: 100%;
   z-index: 5;
 }
@@ -91,7 +102,7 @@ $font-weight: 300;
 
 .card__face__front--text {
   background: $bright-background-color;
-  border-top: 3px solid $accent-color;
+  border-top: none;
 }
 
 .card__text {
@@ -100,10 +111,23 @@ $font-weight: 300;
   height: 100%;
   justify-content: center;
   width: 100%;
-  padding: 0px 20px;
 }
 
-.flip-button {
+.card__text--long-text {
+  display: flex;
+  align-items: flex-start;
+  font-size: 20px;
+  line-height: 1.5625;
+  text-align: left;
+}
+
+.card__text--long-text p {
+  color: $default-text-color;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.flip__button {
   border: none;
   bottom: 0;
   outline: none;
@@ -116,27 +140,27 @@ $font-weight: 300;
   z-index: 50;
 }
 
-.flip-button--hide-text {
+.flip__button--hide-text {
   background: transparent;
 }
 
-.flip-button--show-text {
+.flip__button--show-text {
   background: $bright-background-color;
 }
 
-.flip-icon {
+.flip__icon {
   opacity: 0.5;
 }
 
-.flip-icon--shadow {
+.flip__icon--shadow {
   filter: drop-shadow(0 0 2px rgba(0,0,0,.7));
 }
 
-.flip-text--hide-text {
+.flip__text--hide-text {
   display: none;
 }
 
-.flip-text--show-text {
+.flip__text--show-text {
   font-size: 10px;
   opacity: 0.5;
   margin-right: 6px;

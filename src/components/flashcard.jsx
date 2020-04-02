@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import FlashcardContent from './FlashcardContent';
-import FlipButton from './FlipButton';
-import FlipIcon from '../assets/FlipIcon';
+
 import '../stylesheets/index.css';
+
+import FlashcardContent from './FlashcardContent';
+import FlipButton from './FlipButton';;
 
 export default class Flashcard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstFlip: false,
       flipped: false,
     }
     this.flipCard = this.flipCard.bind(this);
   }
 
   flipCard() {
-    this.setState({ flipped: !this.state.flipped });
+    if (!this.state.firstFlip) {
+      this.setState({ firstFlip: true, flipped: !this.state.flipped })
+    } else {
+      this.setState({ flipped: !this.state.flipped });
+    }
   }
 
   render() {
-    const { contentFront, contentFrontType, contentBack, contentBackType, isFirst } = this.props;
-    const { flipped } = this.state;
+    const {
+      contentFront,
+      contentFrontType,
+      contentBack,
+      contentBackType,
+      isFirst
+    } = this.props;
+
+    const { firstFlip, flipped } = this.state;
+
+    const showFlipText = isFirst && !firstFlip;
 
     return (
       <section className="card__container">
@@ -28,14 +43,14 @@ export default class Flashcard extends Component {
           onClick={this.flipCard}
         >
           <div className={`card__face card__face__front--${contentFrontType}`}>
-            <FlipButton cardSide="front" isFirst={true} contentType={contentFrontType} />
+            <FlipButton cardSide="front" showFlipText={showFlipText} contentType={contentFrontType} />
             <FlashcardContent
               content={contentFront}
               contentType={contentFrontType}
             />
           </div>
           <div className="card__face card__face__back">
-            <FlipButton cardSide="back" isFirst={true} contentType={contentBackType} />
+            <FlipButton cardSide="back" showFlipText={false} contentType={contentBackType} />
             <FlashcardContent
               content={contentBack}
               contentType={contentBackType}

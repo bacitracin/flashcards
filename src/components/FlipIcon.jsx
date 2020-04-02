@@ -9,7 +9,7 @@ const FlipIcon = ({
   return (
     <svg
       aria-hidden={true}
-      className={`flip-icon ${iconShadow ? 'flip-icon--shadow' : ''}`}
+      className={`flip__icon ${iconShadow ? 'flip__icon--shadow' : ''}`}
       height={height || 17}
       role="img"
       title="Flip card icon"
