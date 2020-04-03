@@ -50,9 +50,6 @@
   position: relative;
   width: 100%; }
 
-.card__face__front--text .card__content--text {
-  border-top: 3px solid #23b4a1; }
-
 .card__content--text {
   font-size: 24px;
   mask-border: linear-gradient(to bottom, black 60%, transparent);
@@ -79,6 +76,9 @@
   background: #fff;
   border-top: none; }
 
+.card__face__front--text .card__content--text {
+  border-top: 3px solid #23b4a1; }
+
 .card__text {
   align-items: center;
   display: flex;
@@ -87,8 +87,8 @@
   width: 100%; }
 
 .card__text--long-text {
-  display: flex;
   align-items: flex-start;
+  display: flex;
   font-size: 20px;
   line-height: 1.5625;
   text-align: left; }
@@ -99,16 +99,16 @@
   word-wrap: break-word; }
 
 .flip__button {
+  align-items: center;
   border: none;
   bottom: 0;
+  display: flex;
+  justify-content: center;
   outline: none;
   padding: 12.5px;
-  display: flex;
   position: absolute;
-  align-items: center;
-  justify-content: center;
   right: 0;
-  z-index: 50; }
+  z-index: 10; }
 
 .flip__button--hide-text {
   background: transparent; }
@@ -126,11 +126,10 @@
   display: none; }
 
 .flip__text--show-text {
-  font-size: 10px;
-  opacity: 0.5;
-  margin-right: 6px;
+  font-size: 12px;
   font-style: italic;
   line-height: 17px;
-  font-size: 12px; }
+  margin-right: 6px;
+  opacity: 0.5; }
 
 /*# sourceMappingURL=index.css.map */

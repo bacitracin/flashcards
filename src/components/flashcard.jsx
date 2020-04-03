@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import '../stylesheets/index.css';
-
 import FlashcardContent from './FlashcardContent';
 import FlipButton from './FlipButton';;
 
@@ -29,12 +27,11 @@ export default class Flashcard extends Component {
       contentFrontType,
       contentBack,
       contentBackType,
-      isFirst
+      isFirstCard
     } = this.props;
 
     const { firstFlip, flipped } = this.state;
-
-    const showFlipText = isFirst && !firstFlip;
+    const showFlipText = isFirstCard && !firstFlip;
 
     return (
       <section className="card__container">
@@ -43,14 +40,22 @@ export default class Flashcard extends Component {
           onClick={this.flipCard}
         >
           <div className={`card__face card__face__front--${contentFrontType}`}>
-            <FlipButton cardSide="front" showFlipText={showFlipText} contentType={contentFrontType} />
+            <FlipButton
+              cardSide="front"
+              contentType={contentFrontType}
+              showFlipText={showFlipText}
+            />
             <FlashcardContent
               content={contentFront}
               contentType={contentFrontType}
             />
           </div>
           <div className="card__face card__face__back">
-            <FlipButton cardSide="back" showFlipText={false} contentType={contentBackType} />
+            <FlipButton
+              cardSide="back"
+              contentType={contentBackType}
+              showFlipText={false}
+            />
             <FlashcardContent
               content={contentBack}
               contentType={contentBackType}

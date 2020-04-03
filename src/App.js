@@ -6,9 +6,11 @@ import FlashcardsWrapper from './components/FlashcardsWrapper';
 function App() {
   return (
     <div className="App">
-      <FlashcardsWrapper
-        flashcards={MOCK_DATA}
-      />
+      <div className="cards__wrapper">
+        <FlashcardsWrapper
+          flashcards={MOCK_DATA}
+        />
+      </div>
     </div>
   );
 }

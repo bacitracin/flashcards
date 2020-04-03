@@ -5,15 +5,21 @@ import '../stylesheets/index.css';
 const FlashcardsWrapper = ({ flashcards }) => {
   return flashcards.length ?
     (
-      flashcards.map((card, index) => (
-        <Flashcard
-          contentFront={card.contentFront}
-          contentFrontType={card.contentFrontType}
-          contentBack={card.contentBack}
-          contentBackType={card.contentBackType}
-          key={card.id}
-          isFirst={index === 0}
-        />)
+      flashcards.map(({
+        contentBack,
+        contentBackType,
+        contentFront,
+        contentFrontType,
+        id
+      }, index) => (
+          <Flashcard
+            contentFront={contentFront}
+            contentFrontType={contentFrontType}
+            contentBack={contentBack}
+            contentBackType={contentBackType}
+            key={id}
+            isFirstCard={index === 0}
+          />)
       )
     ) : null
 }
