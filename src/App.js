@@ -1,7 +1,7 @@
 import React from 'react';
-import './stylesheets/index.css';
-import MOCK_DATA from './data/index';
 import FlashcardsWrapper from './components/FlashcardsWrapper';
+import MOCK_DATA from './data/index';
+import './stylesheets/index.css';
 
 function App() {
   return (

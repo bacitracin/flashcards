@@ -1,8 +1,10 @@
-# React Flashcards
+# React Flashcards Block
 
-A live version of this app can be found at::
+React app that renders a list of double-sided flashcards. For the Articulate dev challenge.
 
-## Getting Started
+A live version of this app can be found [here](https://romantic-mcnulty-fe5545.netlify.com/)
+
+## Running the App Locally
 
 1. Clone locally using
    `git clone git@github.com:bacitracin/flashcards.git`
@@ -18,4 +20,6 @@ The following technologies were used:
 * React 16.13.0
 * Create-react-app for the scaffolding
 
-### Screenshots
+### Sample behavior
+
+![Flashcard behavior gif](/src/assets/flashcard_flip.gif)

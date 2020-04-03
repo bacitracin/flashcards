@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
 
-$accent-color: rgb(35, 180, 161);
+$accent-color: #23B4A1;
 $border-color:#ddd;
 $bright-background-color: #fff;
 $default-background-color: #fafafa;
@@ -13,7 +13,7 @@ $font-weight: 300;
 
 .App {
   font-family: "Lato", sans-serif;
-  padding: 50px;
+  padding: 30px;
   text-align: center;
 }
 
@@ -38,8 +38,8 @@ $font-weight: 300;
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 20px 0px;
-  padding: 0px 40px;
+  margin: 25px 0px;
+  padding: 0px 25px;
   overflow: hidden;
   overflow-y: auto;
   width: 100%;
@@ -48,7 +48,8 @@ $font-weight: 300;
 .card__container {
   cursor: pointer;
   height: $card-size;
-  margin: 50px;
+  margin: 25px 15px;
+  min-width: $card-size;
   perspective: 800px;
   width: $card-size;
 }
@@ -80,13 +81,13 @@ $font-weight: 300;
 .card__face {
   backface-visibility: hidden;
   border: 1px solid $border-color;
-  box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
   height: 100%;
   left: 0;
   opacity: 1;
   overflow: hidden;
   position: absolute;
   top: 0;
+  -webkit-backface-visibility: hidden;
   width: 100%;
   z-index: 5;
 }
@@ -117,14 +118,21 @@ $font-weight: 300;
   align-items: flex-start;
   display: flex;
   font-size: 20px;
-  line-height: 1.5625;
   text-align: left;
 }
 
 .card__text--long-text p {
   color: $default-text-color;
+  line-height: 25px;
   margin: 0;
   word-wrap: break-word;
+}
+
+.cards__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
 }
 
 .flip__button {
@@ -153,7 +161,7 @@ $font-weight: 300;
 }
 
 .flip__icon--shadow {
-  filter: drop-shadow(0 0 2px rgba(0,0,0,.7));
+  filter: drop-shadow(0 0 2px rgba(0,0,0,1));
 }
 
 .flip__text--hide-text {
